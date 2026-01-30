@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* Background animado com partículas */
+        /* Background com partículas */
         .particles {
             position: fixed;
             top: 0;
@@ -112,8 +112,8 @@
         /* Botões profissionais */
         .btn {
             display: inline-block;
-            padding: 20px 50px;
-            font-size: 1.2em;
+            padding: 15px 35px;
+            font-size: 1em;
             font-weight: bold;
             text-transform: uppercase;
             border: none;
@@ -175,7 +175,7 @@
             width: 4px;
             background: linear-gradient(to top, #667eea, #764ba2);
             border-radius: 2px;
-            animation: audioWave 1.5s ease-in-out infinite;
+            animation: audioWave .5s ease-in-out infinite;
         }
 
         .bar:nth-child(1) { animation-delay: 0s; height: 20px; }
@@ -369,6 +369,41 @@
             .section { padding: 30px 15px; }
             .btn { padding: 15px 30px; font-size: 1em; }
         }
+
+        /* CORREÇÃO: Aviso laranja arrumado */
+        .warning-box {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .warning-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .warning-box p {
+            margin: 0;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        /* CORREÇÃO: Botões menores e centralizados */
+        .btn-small {
+            padding: 12px 25px;
+            font-size: 0.9em;
+        }
+
+        .btn-center {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -459,16 +494,16 @@
 
         <!-- Método Paz Cósmica -->
         <div class="section" id="metodo" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 36, 0.1));">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <span style="background: #ff6b6b; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold;">
-                    Atenção: Esta informação pode ser removida a qualquer momento
-                </span>
+            <!-- CORREÇÃO: Aviso laranja arrumado -->
+            <div class="warning-box">
+                <h3>Atenção: Esta informação pode ser removida a qualquer momento</h3>
+                <p>Devido a pressões das grandes clínicas, este método pode ser retirado a qualquer momento</p>
             </div>
 
             <h1 style="text-align: center; font-size: 2.8em; margin-bottom: 30px;">
                 O Método <span style="color: #ff6b6b;">"Paz Cósmica"</span>
             </h1>
-            <h2 style="text-align: center; font-size: 2em; margin-bottom: 40px;">
+<h2 style="text-align: center; font-size: 2em; margin-bottom: 40px;">
                 Que Acaba Com Ansiedade em 7 Minutos
             </h2>
 
@@ -579,8 +614,9 @@
                 <div class="price-current">Por: R$ 97</div>
                 <div class="price-installment">Ou 12x de R$ 9,70 no cartão</div>
                 
+                <!-- CORREÇÃO: Botão menor e centralizado -->
                 <div class="btn-container">
-                    <a href="#" class="btn btn-danger" style="font-size: 1.5em; padding: 25px 60px;">
+                    <a href="#" class="btn btn-danger btn-small btn-center">
                         SIM! QUERO ACABAR COM ANSIEDADE AGORA
                     </a>
                 </div>
@@ -603,8 +639,9 @@
             </div>
 
             <!-- CTA Final -->
+            <!-- CORREÇÃO: Botão menor e centralizado -->
             <div class="btn-container">
-                <a href="#" class="btn btn-danger" style="font-size: 2em; padding: 30px 80px;">
+                <a href="#" class="btn btn-danger btn-small btn-center">
                      🚀 SIM! QUERO VIVER SEM ANSIEDADE!
                 </a>
                 <p style="margin-top: 20px; color: #999;">
