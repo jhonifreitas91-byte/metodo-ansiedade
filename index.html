@@ -109,23 +109,6 @@
             overflow: hidden;
         }
 
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: shine 3s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shine {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
         /* Botões profissionais */
         .btn {
             display: inline-block;
@@ -163,8 +146,8 @@
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% lip; transform: scale(1.05); }
-            100 { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* Player de áudio futurista */
@@ -199,7 +182,7 @@
         .bar:nth-child(2) { animation-delay: 0.1s; height: 40px; }
         .bar:nth-child(3) { animation-delay: 0.2s; height: 30px; }
         .bar:nth-child(4) { animation-delay: 0.3s; height: 50px; }
-        .bar:nth-child(5)各行延迟0.4s; height: 35px; }
+        .bar:nth-child(5) { animation-delay: 0.4s; height: 35px; }
         .bar:nth-child(6) { animation-delay: 0.5s; height: 45px; }
         .bar:nth-child(7) { animation-delay: 0.6s; height: 25px; }
 
@@ -214,48 +197,6 @@
             filter: invert(1) hue-rotate(180deg);
             z-index: 2;
             position: relative;
-        }
-
-        /* Video container */
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            margin: 30px 0;
-        }
-
-        .video-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(102, 126, 234, 0.3));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .play-button:hover {
-            transform: scale(1.1);
-            background: rgba(102, 126, 234, 0.5);
         }
 
         /* Cards de beneficios */
@@ -321,49 +262,6 @@
             flex-shrink: 0;
         }
 
-        /* Urgência */
-        .urgency-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            z-index: 1000;
-            animation: slideDown 0.5s ease-out;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
-        /* Contador regressivo */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
- min-width: 80px;
-        }
-
-        .countdown-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #ff6b6b;
-             display: block;
-        }
-
         /* Preço */
         .pricing {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
@@ -421,10 +319,8 @@
         @media (max-width: 768px) {
             .main-title { font-size: 2em; }
             .section { padding: 40px 20px; }
-            .countdown { flex-wrap: wrap; }
             .price-current { font-size: 3em; }
             .header-content { padding: 30px 20px; }
-            .benefit-card { padding: 20px; }
         }
 
         /* Correções de alinhamento específicas */
@@ -439,14 +335,14 @@
         }
 
         .benefit-card p {
-            margin: 0px;
+            margin: 0;
             line-height: 1.5;
         }
 
-        /* Remover sobreposições */
-        .section > * {
-            position: relative;
-            z-index: 2;
+        /* Centralizar botões */
+        .btn-container {
+            text-align: center;
+            margin: 30px 0;
         }
 
         /* Garantir que títulos não sobreponham */
@@ -472,8 +368,6 @@
             .subtitle { font-size: 1.1em; }
             .section { padding: 30px 15px; }
             .btn { padding: 15px 30px; font-size: 1em; }
-            .countdown-number { font-size: 2em; }
-            .price-current { font-size: 2.5em; }
         }
     </style>
 </head>
@@ -486,9 +380,11 @@
         <div class="header-content">
             <h1 class="main-title">Acabe Com Sua Ansiedade em 7 Minutos</h1>
             <p class="subtitle">O Método "Paz Cósmica" que as clínicas não querem que você descubra</p>
-            <button class="btn btn-primary" onclick="scrollToSection('metodo')">
-                QUERO ME CURAR AGORA
-            </button>
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="scrollToSection('metodo')">
+                    QUERO ME CURAR AGORA
+                </button>
+            </div>
         </div>
     </header>
 
@@ -561,52 +457,11 @@
             </div>
         </div>
 
-        <!-- Frequências Milagrosas -->
-        <div class="section">
-            <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 30px;">
-                As Frequências que os Médicos Não Quer que Você Descubra
-            </h2>
-            
-            <div class="benefits">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌌</div>
-                    <h3>432 Hz</h3>
-                    <p>Frequência do universo que <strong>sincroniza seus hemisférios cerebrais</strong></p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">❤️</div>
-                    <h3>528 Hz</h3>
-                    <p>"Frequência do amor" que <strong>repara seu DNA</strong></p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔮</div>
-                    <h3>852 Hz</h3>
-                    <p>Desperta sua intuição e <strong>restaura ordem espiritual</strong></p>
-                </div>
-            </div>
-
-            <h2 style="text-align: center; font-size: 1.8em; margin: 40px 0; color: #667eea;">
-                Assista ao Demonstração Visual
-            </h2>
-
-            <div class="video-container">
-                <div class="video-placeholder" onclick="playVideo()">
-                    <div class="play-button">
-                        <span style="font-size: 2em; margin-left: 5px;">▶</span>
-                    </div>
-                </div>
-                <video controls style="display: none;" id="demoVideo">
-                    <source src="demo-frequencias.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo.
-                </video>
-            </div>
-        </div>
-
         <!-- Método Paz Cósmica -->
         <div class="section" id="metodo" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 36, 0.1));">
             <div style="text-align: center; margin-bottom: 40px;">
                 <span style="background: #ff6b6b; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold;">
-                     ⚠️ Atenção: Esta informação pode ser removida a qualquer momento
+                    Atenção: Esta informação pode ser removida a qualquer momento
                 </span>
             </div>
 
@@ -626,7 +481,6 @@
                             <h4>Marina Silva</h4>
                             <p>São Paulo, 34 anos</p>
                         </div>
-中国网
                     </div>
                     <p>
                         "Após 15 anos de ansiedade severa e 9 remédios diferentes, este método me curou em 7 minutos. 
@@ -672,7 +526,6 @@
                 </div>
             </div>
 
-向左转
             <!-- Estatísticas -->
             <div class="benefits">
                 <div class="benefit-card">
@@ -695,7 +548,7 @@
             <!-- Conspiração -->
             <div style="background: rgba(255, 107, 107, 0.2); padding: 30px; border-radius: 20px; margin: 40px 0; border: 2px solid rgba(255, 107, 107, 0.5);">
                 <h3 style="font-size: 1.5em; margin-bottom: 20px; text-align: center;">
-                     🚨 A VERDADE QUE OS PSICÓLOGOS NÃO QUEREM QUE VOCÊ SAIBA
+                    A VERDADE QUE OS PSICÓLOGOS NÃO QUEREM QUE VOCÊ SAIBA
                 </h3>
                 <p style="font-size: 1.1em; line-height: 1.8;">
                     Em uma conferência privada da Associação Brasileira de Psicologia, um executivo foi gravado dizendo: 
@@ -726,7 +579,7 @@
                 <div class="price-current">Por: R$ 97</div>
                 <div class="price-installment">Ou 12x de R$ 9,70 no cartão</div>
                 
-                <div style="margin: 30px 0;">
+                <div class="btn-container">
                     <a href="#" class="btn btn-danger" style="font-size: 1.5em; padding: 25px 60px;">
                         SIM! QUERO ACABAR COM ANSIEDADE AGORA
                     </a>
@@ -739,7 +592,7 @@
                 </div>
             </div>
 
-<!-- Garantia -->
+            <!-- Garantia -->
             <div class="guarantee">
                 <div class="guarantee-icon">🛡️</div>
                 <h3 style="font-size: 1.5em; margin-bottom: 15px;">Garantia Incondicional de 30 Dias</h3>
@@ -750,7 +603,7 @@
             </div>
 
             <!-- CTA Final -->
-            <div style="text-align: center; margin: 60px 0;">
+            <div class="btn-container">
                 <a href="#" class="btn btn-danger" style="font-size: 2em; padding: 30px 80px;">
                      🚀 SIM! QUERO VIVER SEM ANSIEDADE!
                 </a>
@@ -762,7 +615,7 @@
             <!-- Warning Final -->
             <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 30px; border-radius: 20px; text-align: center;">
                 <h3 style="font-size: 1.8em; margin-bottom: 15px;">
-                     ⚠️ ÚLTIMO AVISO ⚠️
+                     ⚠️  ÚLTIMO AVISO  ⚠️
                 </h3>
                 <p style="font-size: 1.2em;">
                     Esta página será <strong>REMOVIDA</strong> em <strong>23:59</strong> de hoje devido a pressões das clínicas de ansiedade. 
@@ -795,7 +648,6 @@
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (Math.random() * 20 + 20) + 's';
                 particlesContainer.appendChild(particle);
-瞬
             }
         }
 
@@ -807,39 +659,16 @@
             }
         }
 
-        // Funções de vídeo
-        function playVideo() {
-            const placeholder = document.querySelector('.video-placeholder');
-            const video = document.getElementById('demoVideo');
-            placeholder.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-        }
-
         // Reduzir vagas
         function reduceSpots() {
             let spots = 17;
             setInterval(() => {
                 if (spots > 1 && Math.random() > 0.7) {
                     spots--;
-                    document.getElement turfById('spotsLeft').textContent = spots;
+                    document.getElementById('spotsLeft').textContent = spots;
                 }
             }, 15000);
         }
-
-        // Animações ao rolar
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section, .benefit-card, .testimonial-card');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                
-                if (isVisible) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }
-            });
-        });
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
