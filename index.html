@@ -28,6 +28,7 @@
             height: 100%;
             z-index: -1;
             background: linear-gradient(45deg, #0a0a0a, #1a0033, #000011);
+            pointer-events: none;
         }
 
         .particle {
@@ -53,6 +54,7 @@
             text-align: center;
             position: relative;
             background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            padding: 20px;
         }
 
         .header-content {
@@ -62,16 +64,19 @@
             background: rgba(0, 0, 0, 0.7);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
         .main-title {
-            font-size: 3.5em;
+            font-size: 3em;
             margin-bottom: 30px;
             background: linear-gradient(135deg, #667eea, #764ba2, #ff6b6b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: glow 2s ease-in-out infinite alternate;
+            line-height: 1.2;
         }
 
         @keyframes glow {
@@ -113,48 +118,12 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             animation: shine 3s infinite;
+            pointer-events: none;
         }
 
         @keyframes shine {
             0% { left: -100%; }
             100% { left: 100%; }
-        }
-
-        /* Formulário de captura profissional */
-        .optin-form {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 40px 0;
-            border: 2px solid rgba(102, 126, 234, 0.5);
-        }
-
-        .form-title {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        .form-group {
-            margin: 20px 0;
-        }
-
-        .form-control {
-            width: 100%;
-            max-width: 400px;
-            padding: 15px;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.1em;
-            margin: 10px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-control::placeholder {
-            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Botões profissionais */
@@ -171,6 +140,7 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
         .btn-primary {
@@ -193,8 +163,8 @@
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            50% lip; transform: scale(1.05); }
+            100 { transform: scale(1); }
         }
 
         /* Player de áudio futurista */
@@ -206,12 +176,13 @@
             margin: 30px 0;
             position: relative;
             border: 1px solid rgba(102, 126, 234, 0.3);
+            z-index: 1;
         }
 
         .audio-visualizer {
             display: flex;
             justify-content: center;
-            align-items: end;
+            align-items: flex-end;
             height: 60px;
             margin: 20px 0;
             gap: 3px;
@@ -228,13 +199,21 @@
         .bar:nth-child(2) { animation-delay: 0.1s; height: 40px; }
         .bar:nth-child(3) { animation-delay: 0.2s; height: 30px; }
         .bar:nth-child(4) { animation-delay: 0.3s; height: 50px; }
-        .bar:nth-child(5) { animation-delay: 0.4s; height: 35px; }
+        .bar:nth-child(5)各行延迟0.4s; height: 35px; }
         .bar:nth-child(6) { animation-delay: 0.5s; height: 45px; }
         .bar:nth-child(7) { animation-delay: 0.6s; height: 25px; }
 
         @keyframes audioWave {
             0%, 100% { transform: scaleY(0.5); }
             50% { transform: scaleY(1); }
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 20px;
+            filter: invert(1) hue-rotate(180deg);
+            z-index: 2;
+            position: relative;
         }
 
         /* Video container */
@@ -296,7 +275,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .benefit-card {
+        .benefit-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
         }
@@ -339,6 +318,7 @@
             justify-content: center;
             font-size: 1.5em;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* Urgência */
@@ -366,6 +346,7 @@
             justify-content: center;
             gap: 20px;
             margin: 30px 0;
+            flex-wrap: wrap;
         }
 
         .countdown-item {
@@ -373,14 +354,14 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            min-width: 80px;
+ min-width: 80px;
         }
 
         .countdown-number {
             font-size: 2.5em;
             font-weight: bold;
             color: #ff6b6b;
-            display: block;
+             display: block;
         }
 
         /* Preço */
@@ -438,20 +419,66 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .main-title { font-size: 2.5em; }
+            .main-title { font-size: 2em; }
             .section { padding: 40px 20px; }
             .countdown { flex-wrap: wrap; }
             .price-current { font-size: 3em; }
+            .header-content { padding: 30px 20px; }
+            .benefit-card { padding: 20px; }
+        }
+
+        /* Correções de alinhamento específicas */
+        .testimonial-card p {
+            word-break: break-word;
+            line-height: 1.6;
+        }
+
+        .benefit-card h3 {
+            margin: 15px 0;
+            font-size: 1.3em;
+        }
+
+        .benefit-card p {
+            margin: 0px;
+            line-height: 1.5;
+        }
+
+        /* Remover sobreposições */
+        .section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Garantir que títulos não sobreponham */
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        /* Ajustar espaçamentos */
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Correção de camadas */
+        .audio-player * {
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Ajustar tamanhos de fonte em mobile */
+        @media (max-width: 480px) {
+            .main-title { font-size: 1.8em; }
+            .subtitle { font-size: 1.1em; }
+            .section { padding: 30px 15px; }
+            .btn { padding: 15px 30px; font-size: 1em; }
+            .countdown-number { font-size: 2em; }
+            .price-current { font-size: 2.5em; }
         }
     </style>
 </head>
 <body>
-    <!-- Barra de urgência -->
-    <div class="urgency-bar" id="urgencyBar" style="display: none;">
-         ⚠️ ATENÇÃO: Esta página será removida em <span id="countdownText">23:59</span> de hoje!
-    </div>
-
-    <!-- Partículas animadas -->
+    <!-- Background com partículas -->
     <div class="particles" id="particles"></div>
 
     <!-- Header Principal -->
@@ -459,41 +486,17 @@
         <div class="header-content">
             <h1 class="main-title">Acabe Com Sua Ansiedade em 7 Minutos</h1>
             <p class="subtitle">O Método "Paz Cósmica" que as clínicas não querem que você descubra</p>
-            <button class="btn btn-primary" onclick="scrollToSection('optin')">
+            <button class="btn btn-primary" onclick="scrollToSection('metodo')">
                 QUERO ME CURAR AGORA
             </button>
         </div>
     </header>
 
-    <!-- Formulário de Captura -->
+    <!-- Container principal -->
     <div class="container">
-        <div class="optin-form" id="optin">
-            <h2 class="form-title">⚡ Acesso Imediato ao Método Paz Cósmica</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px;">
-                Digite seus dados abaixo e receba <strong>INSTANTANEAMENTE</strong> o acesso ao método que já curou <strong>340 mil pessoas</strong>
-            </p>
-            <form id="leadForm">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Seu Nome Completo" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Seu Melhor Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Seu WhatsApp (Opcional)" id="whatsapp">
-                </div>
-                <button type="submit" class="btn btn-danger">
-                    RECEBER ACESSO IMEDIATO AGORA
-                </button>
-            </form>
-            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">
-                 🔒 Seus dados estão 100% seguros. Sem spam.
-            </p>
-        </div>
-
         <!-- Seção de Ansiedade -->
         <div class="section">
-            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">
+            <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 30px;">
                 Eu sei que se você chegou até aqui, é porque a ansiedade te dominou de novo...
             </h2>
             <p style="font-size: 1.3em; text-align: center; margin-bottom: 40px;">
@@ -527,7 +530,7 @@
 
         <!-- Terapia Sonora -->
         <div class="section">
-            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">
+            <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 30px;">
                 Você conhece o poder das frequências terapêuticas?
             </h2>
             <p style="font-size: 1.2em; text-align: center; margin-bottom: 40px;">
@@ -553,15 +556,15 @@
             </div>
 
             <div style="text-align: center; margin: 40px 0;">
-                <h2 style="color: #667eea; font-size: 2em;">E aí? Já se sente mais leve?</h2>
+                <h2 style="color: #667eea; font-size: 1.8em;">E aí? Já se sente mais leve?</h2>
                 <p style="font-size: 1.2em;">Isso foi apenas 1% do que você descobrirá a seguir...</p>
             </div>
         </div>
 
         <!-- Frequências Milagrosas -->
         <div class="section">
-            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 30px;">
-                As Frequências que os Médicos Não Quem que Você Descubra
+            <h2 style="text-align: center; font-size: 2.2em; margin-bottom: 30px;">
+                As Frequências que os Médicos Não Quer que Você Descubra
             </h2>
             
             <div class="benefits">
@@ -582,7 +585,7 @@
                 </div>
             </div>
 
-            <h2 style="text-align: center; font-size: 2em; margin: 40px 0; color: #667eea;">
+            <h2 style="text-align: center; font-size: 1.8em; margin: 40px 0; color: #667eea;">
                 Assista ao Demonstração Visual
             </h2>
 
@@ -600,37 +603,19 @@
         </div>
 
         <!-- Método Paz Cósmica -->
-        <div class="section" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 36, 0.1));">
+        <div class="section" id="metodo" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(238, 90, 36, 0.1));">
             <div style="text-align: center; margin-bottom: 40px;">
                 <span style="background: #ff6b6b; color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold;">
                      ⚠️ Atenção: Esta informação pode ser removida a qualquer momento
                 </span>
             </div>
 
-            <h1 style="text-align: center; font-size: 3.5em; margin-bottom: 30px;">
+            <h1 style="text-align: center; font-size: 2.8em; margin-bottom: 30px;">
                 O Método <span style="color: #ff6b6b;">"Paz Cósmica"</span>
             </h1>
             <h2 style="text-align: center; font-size: 2em; margin-bottom: 40px;">
                 Que Acaba Com Ansiedade em 7 Minutos
             </h2>
-
-            <!-- Video Sales Letter -->
-            <div class="video-container">
-                <div class="video-placeholder" onclick="playVSL()">
-                    <div class="play-button">
-                        <span style="font-size: 2em; margin-left: 5px;">▶</span>
-                    </div>
-                    <div style="position: absolute; bottom: 20px; left: 20px; right: 20px;">
-                        <p style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 10px;">
-                            <strong>🎬 Assista até o final e descubra o método que já curou 340 mil pessoas</strong>
-                        </p>
-                    </div>
-                </div>
-                <video style="display: none;" id="vslVideo">
-                    <source src="vsl-metodo.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo.
-                </video>
-            </div>
 
             <!-- Depoimentos -->
             <div class="testimonials">
@@ -641,10 +626,11 @@
                             <h4>Marina Silva</h4>
                             <p>São Paulo, 34 anos</p>
                         </div>
+中国网
                     </div>
                     <p>
                         "Após 15 anos de ansiedade severa e 9 remédios diferentes, este método me curou em 7 minutos. 
-                        Meu psicólogo ficou em choio quando contei que não precisava mais dele."
+                        Meu psicólogo ficou em choque quando contei que não precisava mais dele."
                     </p>
                     <div style="margin-top: 15px; color: #ffd700;">
                          ⭐⭐⭐⭐⭐
@@ -686,6 +672,7 @@
                 </div>
             </div>
 
+向左转
             <!-- Estatísticas -->
             <div class="benefits">
                 <div class="benefit-card">
@@ -708,7 +695,7 @@
             <!-- Conspiração -->
             <div style="background: rgba(255, 107, 107, 0.2); padding: 30px; border-radius: 20px; margin: 40px 0; border: 2px solid rgba(255, 107, 107, 0.5);">
                 <h3 style="font-size: 1.5em; margin-bottom: 20px; text-align: center;">
-                     🚨 A VERDADE QUE OS PSICÓLOGOS NÃO QUEM QUE VOCÊ SAIBA
+                     🚨 A VERDADE QUE OS PSICÓLOGOS NÃO QUEREM QUE VOCÊ SAIBA
                 </h3>
                 <p style="font-size: 1.1em; line-height: 1.8;">
                     Em uma conferência privada da Associação Brasileira de Psicologia, um executivo foi gravado dizendo: 
@@ -727,31 +714,9 @@
                     <li>👉 Sua ansiedade vai <strong>piorar 300%</strong> nos próximos 6 meses</li>
                     <li>👉 Você tem <strong>78% de chances</strong> de desenvolver depressão profunda</li>
                     <li>👉 Vai gastar <strong>R$ 14.000 por ano</strong> em terapias inúteis</li>
-                    <li👉 Vai perder <strong>7 anos da sua vida</strong> devido ao estresse crônico</li>
+                    <li>👉 Vai perder <strong>7 anos da sua vida</strong> devido ao estresse crônico</li>
                     <li>👉 <strong>91% das pessoas</strong> que ignoram sofrem colapso nervoso em 18 meses</li>
                 </ul>
-            </div>
-
-            <!-- Contador Regressivo -->
-            <div style="text-align: center; margin: 40px 0;">
-                <h3 style="margin-bottom: 20px;">⏰ Restam apenas:</h3>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="hours">23</span>
-                        <span>Horas</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">59</span>
-                        <span>Minutos</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">59</span>
-                        <span>Segundos</span>
-                    </div>
-                </div>
-                <p style="color: #ff6b6b; font-weight: bold;">
-                    Para aproveitar este desconto especial
-                </p>
             </div>
 
             <!-- Preço -->
@@ -774,7 +739,7 @@
                 </div>
             </div>
 
-            <!-- Garantia -->
+<!-- Garantia -->
             <div class="guarantee">
                 <div class="guarantee-icon">🛡️</div>
                 <h3 style="font-size: 1.5em; margin-bottom: 15px;">Garantia Incondicional de 30 Dias</h3>
@@ -797,7 +762,7 @@
             <!-- Warning Final -->
             <div style="background: linear-gradient(135deg, #ff6b6b, #ee5a24); color: white; padding: 30px; border-radius: 20px; text-align: center;">
                 <h3 style="font-size: 1.8em; margin-bottom: 15px;">
-                     ⚠️  ÚLTIMO AVISO  ⚠️
+                     ⚠️ ÚLTIMO AVISO ⚠️
                 </h3>
                 <p style="font-size: 1.2em;">
                     Esta página será <strong>REMOVIDA</strong> em <strong>23:59</strong> de hoje devido a pressões das clínicas de ansiedade. 
@@ -830,99 +795,17 @@
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (Math.random() * 20 + 20) + 's';
                 particlesContainer.appendChild(particle);
+瞬
             }
         }
 
-        // Contador regressivo
-        function startCountdown() {
-            let hours = 23;
-            let minutes = 59;
-            let seconds = 59;
-
-            setInterval(() => {
-                seconds--;
-                if (seconds < 0) {
-                    seconds = 59;
-                    minutes--;
-                    if (minutes < 0) {
-                        minutes = 59;
-                        hours--;
-                        if (hours < 0) {
-                            hours = 23;
-                        }
-                    }
-                }
-
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }, 1000);
+        // Scroll suave
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-
-        // Reduzir vagas
-        function reduceSpots() {
-            let spots = 17;
-            setInterval(() => {
-                if (spots > 1 && Math.random() > 0.7) {
-                    spots--;
-                    document.getElementById('spotsLeft').textContent = spots;
-                    
-                    // Mostrar notificação
-                    showNotification(`🚨 Alguém acabou de comprar! Restam apenas ${spots} vagas!`);
-                }
-            }, 15000);
-        }
-
-        // Notificação flutuante
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-                color: white;
-                padding: 15px 20px;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                z-index: 10000;
-                animation: slideIn 0.5s ease-out;
-                max-width: 300px;
-                font-weight: bold;
-            `;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.5s ease-in forwards';
-                setTimeout(() => notification.remove(), 500);
-            }, 5000);
-        }
-
-        // Formulário de captura
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Mostrar carregando
-            const button = this.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = 'PREPARANDO SEU ACESSO...';
-            button.disabled = true;
-
-            setTimeout(() => {
-                // Simular redirecionamento para página de vendas
-                alert('🎉 PARABÉNS! Você garantiu seu acesso ao Método Paz Cósmica!\n\nAguarde... você será redirecionado para a página de checkout em 3 segundos.');
-                
-                // Mostrar barra de urgência
-                document.getElementById('urgencyBar').style.display = 'block';
-                
-                // Scroll para seção de vendas
-                document.querySelector('.section:last-of-type').scrollIntoView({ behavior: 'smooth' });
-                
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 2000);
-        });
 
         // Funções de vídeo
         function playVideo() {
@@ -933,22 +816,15 @@
             video.play();
         }
 
-        function playVSL() {
-            const placeholder = document.querySelectorAll('.video-placeholder')[1];
-            const video = document.getElementById('vslVideo');
-            placeholder.style.display = 'none';
-            video.style.display = 'block';
-            video.play();
-            
-            // Rastrear visualização
-            setTimeout(() => {
-                showNotification('💡 Dica: Assista até o final para descobrir o método completo!');
-            }, 30000);
-        }
-
-        // Scroll suave
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        // Reduzir vagas
+        function reduceSpots() {
+            let spots = 17;
+            setInterval(() => {
+                if (spots > 1 && Math.random() > 0.7) {
+                    spots--;
+                    document.getElement turfById('spotsLeft').textContent = spots;
+                }
+            }, 15000);
         }
 
         // Animações ao rolar
@@ -965,43 +841,16 @@
             });
         });
 
-        // CSS adicional para animações
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-            .section, .benefit-card, .testimonial-card {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: all 0.6s ease;
-            }
-        `;
-        document.head.appendChild(style);
-
         // Inicializar
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-            startCountdown();
             reduceSpots();
             
-            // Mostrar barra de urgência após 10 segundos
-            setTimeout(() => {
-                document.getElementById('urgencyBar').style.display = 'block';
-            }, 10000);
-        });
-
-        // Sair da página
-        window.addEventListener('beforeunload', function(e) {
-            if (Math.random() > 0.5) { // 50% de chance
+            // Mostrar aviso ao sair
+            window.addEventListener('beforeunload', function(e) {
                 e.preventDefault();
-                e.returnValue = '⚠️ ESPERE! Você está prestes a perder a chance de eliminar sua ansiedade em 7 minutos! Tem certeza de que quer sair?';
-            }
+                e.returnValue = '⚠️ ESPERE! Você está prestes a perder a chance de eliminar sua ansiedade em 7 minutos!';
+            });
         });
     </script>
 </body>
